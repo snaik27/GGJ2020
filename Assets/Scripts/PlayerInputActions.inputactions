@@ -6,7 +6,7 @@
             "id": "352581bc-560e-434e-94f2-9ec3516ece9d",
             "actions": [
                 {
-                    "name": "Jump",
+                    "name": "AKey",
                     "type": "Button",
                     "id": "12971967-324d-43d5-9b7e-c000a4c0a97b",
                     "expectedControlType": "",
@@ -46,7 +46,7 @@
                     "interactions": "Press"
                 },
                 {
-                    "name": "LedgeGrab",
+                    "name": "BKey",
                     "type": "Button",
                     "id": "876d4d41-81ef-4163-9bcf-b7907037fd5c",
                     "expectedControlType": "",
@@ -70,9 +70,17 @@
                     "interactions": "Press,Press(behavior=1)"
                 },
                 {
-                    "name": "Dodge",
+                    "name": "XKey",
                     "type": "Button",
                     "id": "763dee8a-ca50-4b0b-abca-0e16d7a6f012",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "YKey",
+                    "type": "Button",
+                    "id": "74ba3ac2-58e9-4a8a-ae35-dd1093f274cc",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "Press"
@@ -86,7 +94,7 @@
                     "interactions": "Press(pressPoint=0.5)",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Jump",
+                    "action": "AKey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -97,7 +105,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";KeyboardMouse",
-                    "action": "Jump",
+                    "action": "AKey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -262,7 +270,7 @@
                     "interactions": "Press(pressPoint=0.5)",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Dodge",
+                    "action": "XKey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -273,7 +281,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "LedgeGrab",
+                    "action": "BKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "142c330e-11c6-4b5e-9391-b5222dd2dcf0",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "Press(pressPoint=0.5)",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "YKey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
