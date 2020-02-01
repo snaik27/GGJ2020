@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991840189091062713}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.554, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1297211615070771862}
   m_RootOrder: 0
@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 1297211615070771862}
   - component: {fileID: 7105830652342493156}
   - component: {fileID: 2557353471065857933}
+  - component: {fileID: 4651595802098989587}
   m_Layer: 0
   m_Name: SubwayHOLE
   m_TagString: Untagged
@@ -117,7 +118,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6625040806915352969}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.3, y: -3.16, z: -9.51}
   m_LocalScale: {x: 7.8213, y: 7.8213, z: 7.8213}
   m_Children:
@@ -150,7 +151,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f7db3a84fdb58954185dd309c5ace093, type: 2}
+  - {fileID: 2100000, guid: d28b91f417c712c41a2a45f614adc727, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -171,3 +172,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4651595802098989587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6625040806915352969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35e3e6032fa19c4da4b6315d0b13fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 8

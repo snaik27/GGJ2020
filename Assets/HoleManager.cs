@@ -8,7 +8,9 @@ public class HoleManager : MonoBehaviour
 
     public GameObject[] spawnLocations;
     public GameObject holeSpawner;
-    public List<Hole> holeStack;
+    public GameManagerSingleton gm;
+    public float spawnTimer = 5f;
+    private float timer = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +19,17 @@ public class HoleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
+        if(timer >= spawnTimer)
+        {
+            SpawnNewHole();
+            timer = 0f;
+        }
     }
-
-    public void OnBKey()
+    void SpawnNewHole()
     {
         int randomTrack = Random.Range(0, spawnLocations.Length);
         holeSpawner.GetComponent<SpawnHole>().SpawnNewHole(spawnLocations[randomTrack]);
     }
-
 
 }

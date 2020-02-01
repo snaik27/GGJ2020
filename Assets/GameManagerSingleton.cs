@@ -6,6 +6,15 @@ public class GameManagerSingleton : MonoBehaviour
 {
     public static GameManagerSingleton instance = null;                //Static instance of GameManager which allows it to be accessed by any other script.
     private int level = 1;
+    public float time;
+    public enum GameState
+    {
+        Menu,
+        InGame,
+        GameOver,
+        HighScore
+    }
+    public GameState state;
     //private Level level;
     //Awake is always called before any Start functions
     void Awake()
@@ -34,7 +43,13 @@ public class GameManagerSingleton : MonoBehaviour
     //Initializes the game for each level.
     void InitGame()
     {
+        time = 0f;
         
+    }
+    private void Update()
+    {
+        time += Time.deltaTime;
+        Debug.Log(time);
     }
 }
 

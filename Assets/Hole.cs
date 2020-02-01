@@ -5,7 +5,6 @@ using UnityEngine;
 public class Hole : MonoBehaviour
 {
     public int hp = 8;
-    public HoleManager holeManager;
     // Start is called before the first frame update
     void Start()
     {

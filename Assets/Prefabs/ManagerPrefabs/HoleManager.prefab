@@ -43,3 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c19098780cd3e8469674729febe058c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnLocations: []
+  holeSpawner: {fileID: 2426476691484000881, guid: 35d9c3d2035ca58458e30691bb7c9c0b,
+    type: 3}
+  holeStack: []
