@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SpawnHole : MonoBehaviour
 {
-    public Hole hole;
+    public GameObject hole;
+    public HoleManager hm;
     // Start is called before the first frame update
     void Start()
     {
