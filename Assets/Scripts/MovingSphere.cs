@@ -5,6 +5,12 @@ using UnityEngine.InputSystem;
 
 public class MovingSphere : MonoBehaviour
 {
+    [Header("Other Player")]
+    public MovingSphere otherPlayer;
+    [Space]
+    public Vector2 inputValue;
+
+    private Gamepad myGamepad;
     #region PROPERTIES
     [SerializeField, Range(0f, 100f)]
     float maxSpeed = 10f;
@@ -59,6 +65,7 @@ public class MovingSphere : MonoBehaviour
 
     private void Awake()
     {
+
         m_Rigidbody = GetComponent<Rigidbody>();
     }
     void Start()
@@ -74,7 +81,7 @@ public class MovingSphere : MonoBehaviour
         //UpdateState();
 
         //Called specifically bc camera orientation is not updated unless movement changes
-        OnMovement();
+        Move();
 
     }
     private void Update()
@@ -315,9 +322,14 @@ public class MovingSphere : MonoBehaviour
         }
     }
 
-    public void OnMovement()
+    public void OnMovement(InputValue IV)
     {
-        desiredVelocity = new Vector3(Gamepad.current.leftStick.ReadValue().x, 0f, Gamepad.current.leftStick.ReadValue().y) * maxSpeed;
+        inputValue = IV.Get<Vector2>();
+
+    }
+    public void Move()
+    {
+        desiredVelocity = new Vector3(inputValue.x, 0f, inputValue.y) * maxSpeed;
         
         //Add in camera orientation
         Vector3 m_CamForward_test = Vector3.Scale(m_CamForward, new Vector3(1, 0, 1)).normalized;
