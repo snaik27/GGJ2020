@@ -7,11 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: red 1
-  m_Shader: {fileID: 4800000, guid: 572a7b1c838cba6418692d9030b88fac, type: 3}
+  m_Name: MAT_SubwayWorker 1
+  m_Shader: {fileID: 4800000, guid: 62891736f9b8b99409afcca568c194fb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -47,17 +47,9 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _FirstTex:
-        m_Texture: {fileID: 2800000, guid: 464ca14f3cfaf433582758afa13a9473, type: 3}
-        m_Scale: {x: 0.2, y: 0.2}
-        m_Offset: {x: 0, y: 0}
-    - _FourthTex:
-        m_Texture: {fileID: 2800000, guid: 7e4b97337334f42d2a700647fd938234, type: 3}
-        m_Scale: {x: 0.2, y: 0.2}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 296b074ecb47a9a49ac3db21b3771bea, type: 3}
-        m_Scale: {x: 5, y: 5}
+        m_Texture: {fileID: 2800000, guid: fe94dbc2697cf124a92ab6f4ffbd0981, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -75,47 +67,42 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SecondTex:
-        m_Texture: {fileID: 2800000, guid: 464ca14f3cfaf433582758afa13a9473, type: 3}
-        m_Scale: {x: 0.2, y: 0.2}
-        m_Offset: {x: 0, y: 0}
-    - _ThirdTex:
-        m_Texture: {fileID: 2800000, guid: 464ca14f3cfaf433582758afa13a9473, type: 3}
-        m_Scale: {x: 0.2, y: 0.2}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
-    - _Cutoff: 0
+    - _Cutoff: 0.5
     - _Cutout: 0
     - _DetailNormalMapScale: 1
-    - _DissolveAmount: 0
-    - _DissolveLine: 0
+    - _DissolveAmount: 0.5
+    - _DissolveLine: 0.1
     - _DissolveScale: 1
     - _DstBlend: 0
+    - _EmissionValue: 0
     - _Gloss: 0
     - _GlossMapScale: 1
     - _GlossSmoothness: 0
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Height: 1000
     - _Metallic: 0
     - _Mix: 0
     - _Mode: 0
     - _NormalStrength: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RimStrength: 0
-    - _ShadowSmooth: 0.919
+    - _RemapInputMax: 1
+    - _RemapInputMin: 0
+    - _RemapOutputMax: 1
+    - _RemapOutputMin: 0
+    - _RimStrength: 0.5
+    - _ShadowSmooth: 0.6
     - _ShadowThresh: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _Width: 1000
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.4716981, g: 0, b: 0.00448047, a: 1}
-    - _DissolveLineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DissolveLineColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GlossColor: {r: 1.0039216, g: 1.0039216, b: 1.0039216, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
