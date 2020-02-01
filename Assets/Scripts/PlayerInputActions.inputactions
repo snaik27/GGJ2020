@@ -46,12 +46,12 @@
                     "interactions": "Press"
                 },
                 {
-                    "name": "BKey",
+                    "name": "XKey",
                     "type": "Button",
                     "id": "876d4d41-81ef-4163-9bcf-b7907037fd5c",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Press(behavior=2)"
+                    "interactions": "Press"
                 },
                 {
                     "name": "Shoot",
@@ -70,7 +70,7 @@
                     "interactions": "Press,Press(behavior=1)"
                 },
                 {
-                    "name": "XKey",
+                    "name": "BKey",
                     "type": "Button",
                     "id": "763dee8a-ca50-4b0b-abca-0e16d7a6f012",
                     "expectedControlType": "",
@@ -270,7 +270,7 @@
                     "interactions": "Press(pressPoint=0.5)",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "XKey",
+                    "action": "BKey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -281,7 +281,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "BKey",
+                    "action": "XKey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

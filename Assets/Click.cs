@@ -6,7 +6,7 @@ using TMPro;
 
 public class Click : MonoBehaviour
 {
-    public TextMeshProUGUI text;
+    //public TextMeshProUGUI text;
     private int score = 0;
     // Start is called before the first frame update
     void Start()
@@ -22,11 +22,13 @@ public class Click : MonoBehaviour
         */
     }
 
-    public void OnAKey()
+    public void OnBKey()
     {
         Debug.Log("Jumped");
         score++;
         string txt = score.ToString();
-        text.text = txt;
+      //  text.text = txt;
+        
     }
+    
 }

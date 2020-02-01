@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hole : MonoBehaviour
+public class SpawnHole : MonoBehaviour
 {
-    public int hp = 8;
-    public HoleManager holeManager;
+    public Hole hole;
     // Start is called before the first frame update
     void Start()
     {
-        print("Spawned Hole at " + transform.position);
-
     }
 
     // Update is called once per frame
@@ -18,8 +15,10 @@ public class Hole : MonoBehaviour
     {
         
     }
-    public void OnAKey()
+    public void SpawnNewHole(GameObject go)
     {
-        hp--;
+
+        // Instantniate hole
+        Instantiate(hole, go.transform.position, go.transform.rotation);
     }
 }
