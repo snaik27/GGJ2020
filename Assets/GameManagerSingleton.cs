@@ -8,7 +8,7 @@ public class GameManagerSingleton : MonoBehaviour
     public static GameManagerSingleton instance = null;                //Static instance of GameManager which allows it to be accessed by any other script.
     public int level = 1;
     public float time;
-
+    public TextMesh GameTimeLeft;
     // UI Canvas
     public GameObject inGameCanvas;
     public GameObject bg;
@@ -99,6 +99,9 @@ public class GameManagerSingleton : MonoBehaviour
     public float goTimer = 3.0f;
     private void Update()
     {
+        int asdf = (int)120f - (int)time;
+        GameTimeLeft.text = string.Format("{0:G}", asdf);
+
         switch (state)
         {
             case GameState.Ready:

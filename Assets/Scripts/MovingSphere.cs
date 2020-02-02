@@ -11,6 +11,7 @@ public class MovingSphere : MonoBehaviour
     public bool hasPowerup;
     public Material myMaterial;
     public int shovelPower = 1;
+    public GameObject correspondingButtonIndicator;
 
     [Header("Other Player")]
     public MovingSphere otherPlayer;
@@ -464,8 +465,18 @@ public class MovingSphere : MonoBehaviour
         {
             StartCoroutine(DoPowerup());
         }
+        else if (collision.gameObject.CompareTag("Hole"))
+        {
+            correspondingButtonIndicator.gameObject.SetActive(true);
+        }
     }
-
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Hole"))
+        {
+            correspondingButtonIndicator.gameObject.SetActive(false);
+        }
+    }
     public IEnumerator DoAFlip()
     {
         float duration = 2f;
