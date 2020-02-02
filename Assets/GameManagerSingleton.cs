@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManagerSingleton : MonoBehaviour
 {
     public static GameManagerSingleton instance = null;                //Static instance of GameManager which allows it to be accessed by any other script.
-    private int level = 1;
+    public int level = 1;
     public float time;
     public enum GameState
     {
@@ -49,7 +49,16 @@ public class GameManagerSingleton : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime;
-        Debug.Log(time);
+        if(time < 60)
+        {
+            level = 1;
+        } else if(time >60 && time < 120)
+        {
+            level = 2;
+        } else if(time >120 && time< 180)
+        {
+            level = 3;
+        }
     }
 }
 

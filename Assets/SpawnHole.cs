@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SpawnHole : MonoBehaviour
 {
-    public GameObject hole;
+    public Hole hole;
+    public GameManagerSingleton gm;
     public HoleManager hm;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,24 @@ public class SpawnHole : MonoBehaviour
     {
 
         // Instantniate hole
-        Instantiate(hole, go.transform.position, go.transform.rotation);
+        switch (FindObjectOfType<GameManagerSingleton>().level)
+        {
+            case 1:
+                MakeHole(1, go);
+                break;
+            case 2:
+                MakeHole(2, go);
+                break;
+            case 3:
+                MakeHole(3, go);
+                break;
+        }
+        
+    }
+    void MakeHole(int level, GameObject go)
+    {
+        //hole = new Hole(level, go);
+        Hole holeGo = Instantiate(hole, go.transform.position, go.transform.rotation);
+        hm.currentHoles.Add(holeGo.gameObject);
     }
 }
