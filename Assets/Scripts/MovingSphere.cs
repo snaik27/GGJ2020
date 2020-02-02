@@ -9,6 +9,8 @@ public class MovingSphere : MonoBehaviour
     public MovingSphere otherPlayer;
     [Space]
     public Vector2 inputValue;
+    public float trainHitForce;
+    
 
     private Gamepad myGamepad;
     #region PROPERTIES
@@ -61,6 +63,8 @@ public class MovingSphere : MonoBehaviour
     private Vector3 m_CamForward;
     private Vector3 m_CamRight;
     public Camera Camera;
+    [SerializeField]public float m_StationaryTurnSpeed;
+    [SerializeField] public float m_MovingTurnSpeed;
     #endregion
 
     private void Awake()
@@ -84,6 +88,34 @@ public class MovingSphere : MonoBehaviour
         Move();
 
     }
+    private void DoRotation()
+    {
+        //convert to local-relative for tiltTarget
+        Vector3 moveDirectionLocal = transform.InverseTransformDirection(desiredVelocity);
+        Vector3 lookDir;
+        float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, Vector3.Magnitude(desiredVelocity));
+
+        //Let player move backwards if moveDirection is pointed backwards
+        if (Vector3.Dot(transform.forward, desiredVelocity.normalized) > -0.85f)
+        {
+            lookDir = Vector3.RotateTowards(transform.forward, desiredVelocity.normalized, turnSpeed * Time.deltaTime, 0.0f);
+        }
+        else
+        {
+            lookDir = transform.forward;
+        }
+        //For regular movemnt
+    
+
+
+        Debug.DrawRay(m_Rigidbody.position + Vector3.up, desiredVelocity / maxSpeed, Color.green);
+        Debug.DrawRay(m_Rigidbody.position + (Vector3.up * 0.9f), lookDir.normalized, Color.blue);
+        Vector3 lookDirAdusted = Quaternion.LookRotation(lookDir, transform.up).eulerAngles;
+
+        //m_Rigidbody.MoveRotation(Quaternion.LookRotation(lookDir, transform.up) * tiltTarget);
+        m_Rigidbody.MoveRotation(Quaternion.LookRotation(lookDir, transform.up));
+    }
+
     private void Update()
     {    
         //Updating camera transform axes
@@ -339,7 +371,7 @@ public class MovingSphere : MonoBehaviour
 
         AdjustVelocity(); //Changes air acceleration based on m_IsGrounded and adjusts velocity based on ground slope
 
-
+        DoRotation();
         SnapToGround(); //returns a bool but really snaps player to ground to prevent sliding ridiculously off the edge of ramps
 
 
@@ -357,5 +389,26 @@ public class MovingSphere : MonoBehaviour
         //Move's body toward velocity when colliding       
         velocity.x = (Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange * 10f));
         velocity.z = (Mathf.MoveTowards(velocity.z, desiredVelocity.z, maxSpeedChange * 10f));
+
+        if (collision.gameObject.CompareTag("Train"))
+        {
+            m_Rigidbody.velocity += Vector3.up * trainHitForce;
+            StartCoroutine(DoAFlip());
+        }
+    }
+
+    public IEnumerator DoAFlip()
+    {
+        float duration = 2f;
+        float startTime = Time.time;
+        do
+        {
+            // Set our position as a fraction of the distance between the markers.
+            transform.rotation *= Quaternion.Euler(365f/32f, 0f, 0);
+            duration -= Time.deltaTime;
+            yield return null;
+        } while (duration > 0f);
+
+        transform.rotation = Quaternion.identity;
     }
 }

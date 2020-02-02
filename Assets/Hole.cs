@@ -8,7 +8,7 @@ public class Hole : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print("Spawned Hole at " + transform.position);
+        //print("Spawned Hole at " + transform.position);
 
     }
 
