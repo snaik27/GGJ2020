@@ -7,6 +7,7 @@ public class Hole : MonoBehaviour
     public HoleManager hm;
     public int hp = 5;
     public Transform correspondingTrack;
+    private ParticleSystem sparks;
     public enum Commands
     {
         ButtonA,
@@ -22,6 +23,11 @@ public class Hole : MonoBehaviour
     }
     public Commands commands;
     public Difficulty difficulty;
+
+    private void Awake()
+    {
+        sparks = GetComponentInChildren<ParticleSystem>();
+    }
     /*
     public Hole(int level, GameObject location)
     {
@@ -41,7 +47,7 @@ public class Hole : MonoBehaviour
         hp = 8;
     }*/
     // Start is called before the first frame update
-    
+
     private IEnumerator DestroySelf()
     {
         yield return null;
@@ -50,6 +56,7 @@ public class Hole : MonoBehaviour
     public void ReduceHealthByOne()
     {
         hp--;
+        sparks.Play(true);
         StartCoroutine(scaleDown());
         if(hp <= 0)
         {

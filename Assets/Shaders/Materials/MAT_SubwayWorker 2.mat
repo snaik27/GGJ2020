@@ -76,7 +76,7 @@ Material:
     - _DissolveLine: 0.1
     - _DissolveScale: 1
     - _DstBlend: 0
-    - _EmissionValue: 0
+    - _EmissionValue: 0.3913347
     - _Gloss: 0
     - _GlossMapScale: 1
     - _GlossSmoothness: 0

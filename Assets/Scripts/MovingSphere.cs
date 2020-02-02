@@ -7,6 +7,9 @@ public class MovingSphere : MonoBehaviour
 {
     [Header("UI-Related Stuff")]
     public int Score = 0;
+    public bool hasPowerup;
+    public Material myMaterial;
+    public int shovelPower = 1;
 
     [Header("Other Player")]
     public MovingSphere otherPlayer;
@@ -78,6 +81,7 @@ public class MovingSphere : MonoBehaviour
 
     private void Awake()
     {
+        myMaterial.SetFloat("_EmissionValue", 0f);
         OriginalWorldPos = transform.position;
         OriginalWorldRot = transform.rotation;
         m_Rigidbody = GetComponent<Rigidbody>();
@@ -114,14 +118,18 @@ public class MovingSphere : MonoBehaviour
         if (canShovel)
         {
             ImTouchingThisHole.ReduceHealthByOne();
-            Score++;
+            Score += shovelPower;
         }
     }
     public void OnResetPosition()
     {
         transform.position = OriginalWorldPos;
         transform.rotation = OriginalWorldRot;
+        myMaterial.SetFloat("_EmissionValue", 0f);
+
     }
+
+
     public void ResetScore()
     {
         Score = 0;
@@ -422,6 +430,21 @@ public class MovingSphere : MonoBehaviour
         m_Rigidbody.velocity = velocity; 
     }
 
+    private IEnumerator DoPowerup()
+    {
+        shovelPower = 2;
+        float duration = 10f;
+        float startTime = Time.time;
+        float emissionVal = 0f;
+        while (duration > 0f)
+        {
+            emissionVal = Mathf.Lerp(0f, 0.5f, Mathf.Sin(10f * Time.time) * 0.5f + 0.5f);
+            myMaterial.SetFloat("_EmissionValue", emissionVal);
+            yield return null;
+        }
+
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         //Move's body toward velocity when colliding       
@@ -432,6 +455,10 @@ public class MovingSphere : MonoBehaviour
         {
             m_Rigidbody.velocity += Vector3.up * trainHitForce;
             StartCoroutine(DoAFlip());
+        }
+        else if (collision.gameObject.CompareTag("Powerup"))
+        {
+            StartCoroutine(DoPowerup());
         }
     }
 

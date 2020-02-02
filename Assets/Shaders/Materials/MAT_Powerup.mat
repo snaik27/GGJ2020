@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MAT_SubwayWorker 1
+  m_Name: MAT_Powerup
   m_Shader: {fileID: 4800000, guid: 62891736f9b8b99409afcca568c194fb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: fe94dbc2697cf124a92ab6f4ffbd0981, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -76,7 +76,7 @@ Material:
     - _DissolveLine: 0.1
     - _DissolveScale: 1
     - _DstBlend: 0
-    - _EmissionValue: 0
+    - _EmissionValue: 1
     - _Gloss: 0
     - _GlossMapScale: 1
     - _GlossSmoothness: 0
@@ -101,9 +101,9 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 0.8612033, b: 0, a: 1}
     - _DissolveLineColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 8, g: 8, b: 8, a: 1}
-    - _GlossColor: {r: 1.0039216, g: 1.0039216, b: 1.0039216, a: 1}
+    - _EmissionColor: {r: 1.772549, g: 1.9294118, b: 0.21176471, a: 1}
+    - _GlossColor: {r: 2.0078435, g: 2.0078435, b: 2.0078435, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
