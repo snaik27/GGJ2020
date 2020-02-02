@@ -6,7 +6,6 @@ public class Hole : MonoBehaviour
 {
     public HoleManager hm;
     public int hp = 8;
-<<<<<<< Updated upstream
     public enum Commands
     {
         ButtonA,
@@ -41,57 +40,19 @@ public class Hole : MonoBehaviour
         hp = 8;
     }*/
     // Start is called before the first frame update
-    void Start()
-    {
-        print("Spawned Hole at " + transform.position);
-        InitHole();
-=======
-    public HoleManager hm;
-    // Start is called before the first frame update
-    void Start()
-    {
->>>>>>> Stashed changes
-    }
-    void InitHole()
-    {
-<<<<<<< Updated upstream
-        if(difficulty == Difficulty.Easy)
-        {
-            hp = Random.Range(5, 10);
-        }
-        else if (difficulty == Difficulty.Intermediate)
-        {
-            hp = Random.Range(11, 20);
-        }
-        else
-        {
-            hp = Random.Range(21, (int)(FindObjectOfType<GameManagerSingleton>().time/6));
-        }
-    }
-    // Update is called once per frame
-    void Update()
-=======
-        if (hp <= 0)
-        {
-            hm.spawnedHoles.Remove(transform);
-            StartCoroutine(DestroySelf());
-        }
-    }
-
+    
     private IEnumerator DestroySelf()
     {
         yield return null;
         Destroy(this.gameObject);
     }
     public void ReduceHealthByOne()
->>>>>>> Stashed changes
     {
+        hp--;
         if(hp <= 0)
         {
-            //hm.removeDestroyedHole(transform.position);
-            Debug.Log("Hi");
-            hm.currentHoles.Remove(this.gameObject);
-            Destroy(gameObject);
+            hm.spawnedHoles.Remove(transform);
+            StartCoroutine(DestroySelf());
         }
     }
 }

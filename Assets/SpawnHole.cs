@@ -39,6 +39,5 @@ public class SpawnHole : MonoBehaviour
     {
         //hole = new Hole(level, go);
         Hole holeGo = Instantiate(hole, go.transform.position, go.transform.rotation);
-        hm.currentHoles.Add(holeGo.gameObject);
     }
 }
