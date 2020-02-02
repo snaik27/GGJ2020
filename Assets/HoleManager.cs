@@ -5,13 +5,17 @@ using System.Linq;
 
 /// <summary>
 /// 1. Hole spawning (not in the same space)          xxxxx
-/// 2. Hole removal                                   
-///     2a. Button prompts for hole removal
-/// 3. Keep count of score (last person to hit the hole "wins" the point)
+/// 2. Hole removal                                   xxxxx
+///     2a. Button prompts for hole removal           -Andrew-
+/// 3. Keep count of score (last person to hit the hole "wins" the point)    xxxxxxxxx
 /// 4. Music
 /// 5. SFX
 /// 6. Decals
 /// 7. Scale up train width a bit
+/// 8. Let keyboard/mouse actually turn
+/// 9. Make sure holes can't spawn out of camera view
+/// 10. Add railings to platforms
+/// 11. add timeclock
 /// </summary>
 public class HoleManager : MonoBehaviour
 {

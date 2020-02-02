@@ -24,7 +24,7 @@ public class Click : MonoBehaviour
 
     public void OnBKey()
     {
-        Debug.Log("Jumped");
+        
         score++;
         string txt = score.ToString();
       //  text.text = txt;

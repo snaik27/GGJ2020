@@ -60,9 +60,10 @@ public class Hole : MonoBehaviour
 
     public IEnumerator scaleDown()
     {
-        while (transform.localScale != transform.localScale - Vector3.one * 0.5f)
+        Vector3 newLocalScale = transform.localScale - Vector3.one * 0.5f;
+        while (transform.localScale != newLocalScale)
         {
-            transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale - Vector3.one * 0.5f, 3f * Time.deltaTime);
+            transform.localScale = Vector3.Lerp(transform.localScale, newLocalScale, 3f * Time.deltaTime);
             yield return null;
         }
     }

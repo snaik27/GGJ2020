@@ -5643,6 +5643,16 @@ PrefabInstance:
       propertyPath: trainHitForce
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7147604562032702768, guid: 771e29d8962a3ac429fc6750fbdfa595,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147604562032702768, guid: 771e29d8962a3ac429fc6750fbdfa595,
+        type: 3}
+      propertyPath: maxGroundSnapSpeed
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 771e29d8962a3ac429fc6750fbdfa595, type: 3}
 --- !u!4 &843307965 stripped
@@ -15019,11 +15029,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 49a0e923d39ec3c4c8bb97699e2f2903, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.8
+      value: 22.1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 49a0e923d39ec3c4c8bb97699e2f2903, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.15
+      value: 22.66
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 49a0e923d39ec3c4c8bb97699e2f2903, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16155,6 +16165,16 @@ PrefabInstance:
         type: 3}
       propertyPath: trainHitForce
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147604562032702768, guid: 771e29d8962a3ac429fc6750fbdfa595,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147604562032702768, guid: 771e29d8962a3ac429fc6750fbdfa595,
+        type: 3}
+      propertyPath: maxGroundSnapSpeed
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 771e29d8962a3ac429fc6750fbdfa595, type: 3}

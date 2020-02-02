@@ -46,20 +46,12 @@
                     "interactions": "Press"
                 },
                 {
-                    "name": "Shoot",
+                    "name": "ResetPosition",
                     "type": "Button",
                     "id": "d5a5f4fc-e984-411e-84cd-2c4ca16b9ec8",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "Press"
-                },
-                {
-                    "name": "WallRun",
-                    "type": "Button",
-                    "id": "7dac2540-09ef-4259-9bc0-0e39761ad918",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press,Press(behavior=1)"
                 },
                 {
                     "name": "BKey",
@@ -185,18 +177,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Shoot",
+                    "action": "ResetPosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "8add0651-bba3-4630-8b63-ed6ae7f02483",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
                     "groups": ";KeyboardMouse",
-                    "action": "Shoot",
+                    "action": "ResetPosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -219,17 +211,6 @@
                     "processors": "",
                     "groups": ";KeyboardMouse",
                     "action": "Lock",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5df1a78b-e3de-415d-9b06-d5bc830d99b6",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "WallRun",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
