@@ -72,11 +72,13 @@ public class GameManagerSingleton : MonoBehaviour
         go.SetActive(false);
 
         d = ready.GetComponent<Image>().color;
+        e = go.GetComponent<Image>().color;
         Debug.Log("hi");
         //StartCoroutine(StartTimerCoroutine());
     }
     public Color c;
     public Color d;
+    public Color e;
 
     public float timeLeft = 3f;
 
@@ -101,25 +103,28 @@ public class GameManagerSingleton : MonoBehaviour
         {
             case GameState.Ready:
                 readyTimer -= Time.deltaTime;
-
-
                 c.a = Mathf.Lerp(bg.GetComponent<Image>().color.a, 0, Time.deltaTime);
                 d.a = Mathf.Lerp(ready.GetComponent<Image>().color.a, 0, Time.deltaTime);
                 bg.GetComponent<Image>().color = c;
                 ready.GetComponent<Image>().color = d;
                 if (readyTimer <= 0)
                 {
+                    go.SetActive(true);
+                    ready.SetActive(false);
+                    bg.SetActive(false);
                     state = GameState.Go;
-                    c = go.GetComponent<Image>().color;
                 }
                 break;
 
             case GameState.Go:
                 goTimer -= Time.deltaTime;
-                c.a = Mathf.Lerp(go.GetComponent<Image>().color.a, 0, Time.deltaTime);
-                go.GetComponent<Image>().color = c;
+                e.a = Mathf.Lerp(go.GetComponent<Image>().color.a, 0, Time.deltaTime);
+                go.GetComponent<Image>().color = e;
                 if (goTimer <= 0)
+                {
+                    go.SetActive(false);
                     state = GameState.InGame;
+                }
                 break;
 
             case GameState.InGame:
@@ -139,16 +144,18 @@ public class GameManagerSingleton : MonoBehaviour
                 break;
 
         }
+
         time += Time.deltaTime;
+
         if (time < 60)
         {
             level = 1;
         }
-        else if (time > 60 && time < 120)
+        else if (time >= 60 && time < 120)
         {
             level = 2;
         }
-        else if (time > 120 && time < 180)
+        else if (time >= 120)
         {
             level = 3;
         }
