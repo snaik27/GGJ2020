@@ -56,7 +56,14 @@ public class Hole : MonoBehaviour
     public void ReduceHealthByOne()
     {
         hp--;
-        sparks.Play(true);
+        try
+        {
+            sparks.Play(true);
+        }
+        catch
+        {
+
+        }
         StartCoroutine(scaleDown());
         if(hp <= 0)
         {

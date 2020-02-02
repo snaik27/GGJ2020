@@ -12,10 +12,12 @@ using System.Linq;
 /// 5. SFX
 /// 6. Decals
 /// 7. Scale up train width a bit
-/// 8. Let keyboard/mouse actually turn
-/// 9. Make sure holes can't spawn out of camera view
+/// 8. Let keyboard/mouse actually turn xxxxxxxxxxxxxx
+/// 9. Make sure holes can't spawn out of camera view 
 /// 10. Add railings to platforms
 /// 11. add timeclock
+/// 12. Train warning
+/// powerup: Change model to shovel model, randomly spawn around map every X seconds
 /// </summary>
 public class HoleManager : MonoBehaviour
 {

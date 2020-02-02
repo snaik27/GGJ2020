@@ -7,6 +7,7 @@ public class MovingSphere : MonoBehaviour
 {
     [Header("UI-Related Stuff")]
     public int Score = 0;
+    public float powerupDuration = 10f;
     public bool hasPowerup;
     public Material myMaterial;
     public int shovelPower = 1;
@@ -433,16 +434,19 @@ public class MovingSphere : MonoBehaviour
     private IEnumerator DoPowerup()
     {
         shovelPower = 2;
-        float duration = 10f;
-        float startTime = Time.time;
+        float duration = powerupDuration;
+
         float emissionVal = 0f;
         while (duration > 0f)
         {
             emissionVal = Mathf.Lerp(0f, 0.5f, Mathf.Sin(10f * Time.time) * 0.5f + 0.5f);
             myMaterial.SetFloat("_EmissionValue", emissionVal);
+            duration -= Time.deltaTime;
             yield return null;
         }
-
+        
+        shovelPower = 1;
+        myMaterial.SetFloat("_EmissionValue", 0f);
     }
 
     private void OnCollisionEnter(Collision collision)
