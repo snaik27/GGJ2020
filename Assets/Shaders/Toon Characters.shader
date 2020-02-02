@@ -15,7 +15,7 @@
 		[Space]
 		[Header(Emission)]
 		_EmissionValue("Emission Value", Range(0,1)) = 0
-		_EmissionColor("Emission Color", Color) = (0,0,0,1)
+		[HDR]_EmissionColor("Emission Color", Color) = (0,0,0,1)
 		[HDR]_RimColor("Rim Color", Color) = (1,1,1,1)
 		_RimStrength("Rim Strength", Range(0,2)) = 0.5
 		_Cutoff("Cutoff", Range(0,1)) = 1

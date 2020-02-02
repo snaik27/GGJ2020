@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000054033274699629}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -46,4 +46,5 @@ MonoBehaviour:
   spawnLocations: []
   holeSpawner: {fileID: 2426476691484000881, guid: 35d9c3d2035ca58458e30691bb7c9c0b,
     type: 3}
-  holeStack: []
+  gm: {fileID: 0}
+  spawnTimer: 5

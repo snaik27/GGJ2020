@@ -1,14 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class HoleManager : MonoBehaviour
 {
     //public GameManagerSingleton mainGame;
 
     public GameObject[] spawnLocations;
+<<<<<<< Updated upstream
     public List<GameObject> currentHoles;
     public GameObject holeSpawner;
+=======
+    public List<Transform> spawnedHoles;
+    //public GameObject holeSpawner;
+    public GameObject Hole;
+>>>>>>> Stashed changes
     public GameManagerSingleton gm;
     public float spawnTimer = 2f;
     private float timer = 0f;
@@ -31,6 +38,7 @@ public class HoleManager : MonoBehaviour
     void SpawnNewHole()
     {
         int randomTrack = Random.Range(0, spawnLocations.Length);
+<<<<<<< Updated upstream
         if (currentHoles.Count >= spawnLocations.Length )
         {
 
@@ -45,6 +53,13 @@ public class HoleManager : MonoBehaviour
             //currentHoles.Add(spawnLocations[randomTrack]);
             holeSpawner.GetComponent<SpawnHole>().SpawnNewHole(spawnLocations[randomTrack]);
         }
+=======
+        //holeSpawner.GetComponent<SpawnHole>().SpawnNewHole(spawnLocations[randomTrack]);
+        Transform newHole = Instantiate(Hole, spawnLocations[randomTrack].transform.position, spawnLocations[randomTrack].transform.rotation).transform;
+        newHole.GetComponent<Hole>().hm = this;
+        spawnedHoles.Add(newHole);
+
+>>>>>>> Stashed changes
     }
 
     public void removeDestroyedHole(Vector3 position)

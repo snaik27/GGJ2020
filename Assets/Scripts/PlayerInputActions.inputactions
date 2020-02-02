@@ -38,14 +38,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Dash",
-                    "type": "Button",
-                    "id": "adddab3f-9138-442a-9247-0cf4ff9c8f96",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press"
-                },
-                {
                     "name": "XKey",
                     "type": "Button",
                     "id": "876d4d41-81ef-4163-9bcf-b7907037fd5c",
@@ -183,28 +175,6 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "36d5e08d-c2c2-4047-bcbe-8fd4410b2c13",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0ae342cc-14dd-45f5-9a8b-07bd2a5f4faf",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";KeyboardMouse",
-                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -190,6 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherPlayer: {fileID: 0}
   inputValue: {x: 0, y: 0}
+  trainHitForce: 0
   maxSpeed: 10
   maxGroundSnapSpeed: 100
   snapDistance: 0.2
@@ -210,6 +211,8 @@ MonoBehaviour:
   m_DashCount: 0
   m_JumpConstant: 2
   Camera: {fileID: 0}
+  m_StationaryTurnSpeed: 0
+  m_MovingTurnSpeed: 0
 --- !u!1001 &7147604560989074749
 PrefabInstance:
   m_ObjectHideFlags: 0
