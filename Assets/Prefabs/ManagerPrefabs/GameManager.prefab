@@ -43,5 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac6378fa7337cfc429fc1165d63aaf88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 1
   time: 0
+  inGameCanvas: {fileID: 0}
+  bg: {fileID: 0}
+  ready: {fileID: 0}
+  go: {fileID: 0}
+  pause: {fileID: 0}
   state: 0
+  c: {r: 0, g: 0, b: 0, a: 0}
+  d: {r: 0, g: 0, b: 0, a: 0}
+  timeLeft: 3

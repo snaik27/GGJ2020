@@ -1,17 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManagerSingleton : MonoBehaviour
 {
     public static GameManagerSingleton instance = null;                //Static instance of GameManager which allows it to be accessed by any other script.
     public int level = 1;
     public float time;
+
+    // UI Canvas
+    public GameObject inGameCanvas;
+    public GameObject bg;
+    public GameObject ready;
+    public GameObject go;
+    public GameObject pause;
+
     public enum GameState
     {
         Menu,
+        Ready,
+        Go,
         InGame,
         GameOver,
+        Pause,
         HighScore
     }
     public GameState state;
@@ -35,7 +47,7 @@ public class GameManagerSingleton : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         //Get a component reference to the attached BoardManager script
-     //   boardScript = GetComponent<BoardManager>();
+        //   boardScript = GetComponent<BoardManager>();
 
         //Call the InitGame function to initialize the first level 
         InitGame();
@@ -44,21 +56,105 @@ public class GameManagerSingleton : MonoBehaviour
     void InitGame()
     {
         time = 0f;
-        
+        //Ready Go!
+        InitCanvas();
+
     }
+    void InitCanvas()
+    {
+        if (!inGameCanvas.activeSelf)
+        {
+            inGameCanvas.SetActive(true);
+        }
+        bg.SetActive(true);
+        ready.SetActive(true);
+        pause.SetActive(false);
+        go.SetActive(false);
+
+        d = ready.GetComponent<Image>().color;
+        Debug.Log("hi");
+        //StartCoroutine(StartTimerCoroutine());
+    }
+    public Color c;
+    public Color d;
+
+    public float timeLeft = 3f;
+
+    IEnumerator GoCoroutine()
+    {
+        while (timeLeft >= 0.0f)
+        {
+            c.a = Mathf.Lerp(go.GetComponent<Image>().color.a, 0, Time.deltaTime);
+            go.GetComponent<Image>().color = c;
+
+            timeLeft -= Time.deltaTime;
+        }
+        yield return null;
+        Debug.Log("Waited 3 seconds");
+        go.SetActive(false);
+    }
+    public float readyTimer = 3.0f;
+    public float goTimer = 3.0f;
     private void Update()
     {
+        switch (state)
+        {
+            case GameState.Ready:
+                readyTimer -= Time.deltaTime;
+
+
+                c.a = Mathf.Lerp(bg.GetComponent<Image>().color.a, 0, Time.deltaTime);
+                d.a = Mathf.Lerp(ready.GetComponent<Image>().color.a, 0, Time.deltaTime);
+                bg.GetComponent<Image>().color = c;
+                ready.GetComponent<Image>().color = d;
+                if (readyTimer <= 0)
+                {
+                    state = GameState.Go;
+                    c = go.GetComponent<Image>().color;
+                }
+                break;
+
+            case GameState.Go:
+                goTimer -= Time.deltaTime;
+                c.a = Mathf.Lerp(go.GetComponent<Image>().color.a, 0, Time.deltaTime);
+                go.GetComponent<Image>().color = c;
+                if (goTimer <= 0)
+                    state = GameState.InGame;
+                break;
+
+            case GameState.InGame:
+                Time.timeScale = 1;
+                bg.SetActive(false);
+                pause.SetActive(false);
+                break;
+
+            case GameState.GameOver:
+                // EndGame 
+                break;
+
+            case GameState.Pause:
+                Time.timeScale = 0;
+                pause.SetActive(true);
+                bg.SetActive(true);
+                break;
+
+        }
         time += Time.deltaTime;
-        if(time < 60f)
+        if (time < 60)
         {
             level = 1;
-        } else if(time >60f && time < 120f)
+        }
+        else if (time > 60 && time < 120)
         {
             level = 2;
-        } else if(time >120f && time< 180f)
+        }
+        else if (time > 120 && time < 180)
         {
             level = 3;
         }
+
+
+
     }
 }
 
