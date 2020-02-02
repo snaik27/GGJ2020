@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - Train
+  - Hole
   layers:
   - Default
   - TransparentFX

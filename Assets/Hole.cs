@@ -5,7 +5,8 @@ using UnityEngine;
 public class Hole : MonoBehaviour
 {
     public HoleManager hm;
-    public int hp = 8;
+    public int hp = 5;
+    public Transform correspondingTrack;
     public enum Commands
     {
         ButtonA,
@@ -49,10 +50,20 @@ public class Hole : MonoBehaviour
     public void ReduceHealthByOne()
     {
         hp--;
+        StartCoroutine(scaleDown());
         if(hp <= 0)
         {
-            hm.spawnedHoles.Remove(transform);
+            hm.RemoveHole(correspondingTrack);
             StartCoroutine(DestroySelf());
+        }
+    }
+
+    public IEnumerator scaleDown()
+    {
+        while (transform.localScale != transform.localScale - Vector3.one * 0.5f)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale - Vector3.one * 0.5f, 3f * Time.deltaTime);
+            yield return null;
         }
     }
 }

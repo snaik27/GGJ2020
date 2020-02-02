@@ -3,11 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+/// <summary>
+/// 1. Hole spawning (not in the same space)          xxxxx
+/// 2. Hole removal                                   
+///     2a. Button prompts for hole removal
+/// 3. Keep count of score (last person to hit the hole "wins" the point)
+/// 4. Music
+/// 5. SFX
+/// 6. Decals
+/// 7. Scale up train width a bit
+/// </summary>
 public class HoleManager : MonoBehaviour
 {
     //public GameManagerSingleton mainGame;
 
-    public GameObject[] spawnLocations;
+    public List<Transform> spawnLocations;
+    public List<Transform> usedLocations;
     public List<Transform> spawnedHoles;
     //public GameObject holeSpawner;
     public GameObject Hole;
@@ -32,12 +43,25 @@ public class HoleManager : MonoBehaviour
 
     void SpawnNewHole()
     {
-        int randomTrack = Random.Range(0, spawnLocations.Length);
-        //holeSpawner.GetComponent<SpawnHole>().SpawnNewHole(spawnLocations[randomTrack]);
-        Transform newHole = Instantiate(Hole, spawnLocations[randomTrack].transform.position, spawnLocations[randomTrack].transform.rotation).transform;
-        newHole.GetComponent<Hole>().hm = this;
-        spawnedHoles.Add(newHole);
+        if (spawnLocations.Count > 0)
+        {
+            int randomTrack = Random.Range(0, spawnLocations.Count);
+            Transform Track = spawnLocations[randomTrack];
+            //holeSpawner.GetComponent<SpawnHole>().SpawnNewHole(spawnLocations[randomTrack]);
+            Transform newHole = Instantiate(Hole, Track.transform.position, Track.transform.rotation).transform;
+            newHole.GetComponent<Hole>().hm = this;
+            newHole.GetComponent<Hole>().correspondingTrack = Track;
+            newHole.gameObject.tag = "Hole";
+            spawnedHoles.Add(newHole);
+            usedLocations.Add(Track);
+            spawnLocations.Remove(Track);
+        }
+    }
 
+    public void RemoveHole(Transform track)
+    {
+        spawnLocations.Add(track);
+        usedLocations.Remove(track);
     }
 
     

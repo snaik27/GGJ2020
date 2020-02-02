@@ -49,13 +49,13 @@ public class GameManagerSingleton : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime;
-        if(time < 60)
+        if(time < 60f)
         {
             level = 1;
-        } else if(time >60 && time < 120)
+        } else if(time >60f && time < 120f)
         {
             level = 2;
-        } else if(time >120 && time< 180)
+        } else if(time >120f && time< 180f)
         {
             level = 3;
         }

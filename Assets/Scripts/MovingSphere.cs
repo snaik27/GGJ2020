@@ -5,13 +5,22 @@ using UnityEngine.InputSystem;
 
 public class MovingSphere : MonoBehaviour
 {
+    [Header("UI-Related Stuff")]
+    public int Score = 0;
+
     [Header("Other Player")]
     public MovingSphere otherPlayer;
+    public Vector3 OriginalWorldPos;
+    public Quaternion OriginalWorldRot;
+
     [Space]
+    [Header("Game Specific Settings")]
     public Vector2 inputValue;
     public float trainHitForce;
+    public Hole ImTouchingThisHole;
+    public bool canShovel;
     
-
+    [Header("Character Controller Settings")]
     private Gamepad myGamepad;
     #region PROPERTIES
     [SerializeField, Range(0f, 100f)]
@@ -69,7 +78,8 @@ public class MovingSphere : MonoBehaviour
 
     private void Awake()
     {
-
+        OriginalWorldPos = transform.position;
+        OriginalWorldRot = transform.rotation;
         m_Rigidbody = GetComponent<Rigidbody>();
     }
     void Start()
@@ -99,9 +109,22 @@ public class MovingSphere : MonoBehaviour
     /// 
     /// TODOOOOOOOOOOOOOOOO
     /// </summary>
-    public void OnXKey()
+    public void OnShovel()
     {
-
+        if (canShovel)
+        {
+            ImTouchingThisHole.ReduceHealthByOne();
+            Score++;
+        }
+    }
+    public void OnResetPosition()
+    {
+        transform.position = OriginalWorldPos;
+        transform.rotation = OriginalWorldRot;
+    }
+    public void ResetScore()
+    {
+        Score = 0;
     }
     private void DoRotation()
     {

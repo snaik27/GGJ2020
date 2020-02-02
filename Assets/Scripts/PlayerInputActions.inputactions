@@ -38,7 +38,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "XKey",
+                    "name": "Shovel",
                     "type": "Button",
                     "id": "876d4d41-81ef-4163-9bcf-b7907037fd5c",
                     "expectedControlType": "",
@@ -251,7 +251,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "XKey",
+                    "action": "Shovel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "99cb3536-786d-4c7f-b22b-0c2c9304f4c9",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Shovel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
