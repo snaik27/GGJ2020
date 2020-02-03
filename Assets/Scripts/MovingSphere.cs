@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class MovingSphere : MonoBehaviour
 {
     [Header("UI-Related Stuff")]
     public int Score = 0;
+    public TextMeshProUGUI myScore;
     public float powerupDuration = 10f;
     public bool hasPowerup;
     public Material myMaterial;
     public int shovelPower = 1;
     public GameObject correspondingButtonIndicator;
+    public List<Transform> winningStuff;
+    public List<Transform> losingStuff;
 
     [Header("Other Player")]
     public MovingSphere otherPlayer;
@@ -92,6 +96,26 @@ public class MovingSphere : MonoBehaviour
     {
         Camera = Camera.main;
     }
+
+    public void DisplayWin()
+    {
+        myScore.text = string.Format("{0:G}", Score);
+        foreach(Transform thing in winningStuff)
+        {
+            thing.gameObject.SetActive(true);
+        }
+        
+    }
+
+    public void DisplayLose()
+    {
+        myScore.text = string.Format("{0:G}", Score);
+        foreach (Transform thing in losingStuff)
+        {
+            thing.gameObject.SetActive(true);
+        }
+    }
+
 
     // Update is called once per frame
     void FixedUpdate()

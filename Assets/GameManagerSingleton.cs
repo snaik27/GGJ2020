@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManagerSingleton : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class GameManagerSingleton : MonoBehaviour
     public GameObject ready;
     public GameObject go;
     public GameObject pause;
+
+    public MovingSphere player1;
+    public MovingSphere player2;
+    public GameObject endScreen;
 
     public enum GameState
     {
@@ -73,7 +78,6 @@ public class GameManagerSingleton : MonoBehaviour
 
         d = ready.GetComponent<Image>().color;
         e = go.GetComponent<Image>().color;
-        Debug.Log("hi");
         //StartCoroutine(StartTimerCoroutine());
     }
     public Color c;
@@ -99,9 +103,24 @@ public class GameManagerSingleton : MonoBehaviour
     public float goTimer = 3.0f;
     private void Update()
     {
-        int asdf = (int)120f - (int)time;
-        GameTimeLeft.text = string.Format("{0:G}", asdf);
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            SceneManager.LoadScene(0);
+        }
+        int asdf = (int)90f - (int)time;
+        if (asdf > 0)
+        {
+            GameTimeLeft.text = string.Format("{0:G}", asdf);
+        }
+        if (asdf <= 1)
+        {
+            GameTimeLeft.text = "";
 
+        }
+        if (asdf < 1)
+        {
+            state = GameState.GameOver;
+        }
         switch (state)
         {
             case GameState.Ready:
@@ -138,6 +157,17 @@ public class GameManagerSingleton : MonoBehaviour
 
             case GameState.GameOver:
                 // EndGame 
+                endScreen.SetActive(true);
+                if (player1.Score > player2.Score)
+                {
+                    DisplayWin(player1);
+                    DisplayLoss(player2);
+                }
+                else
+                {
+                    DisplayWin(player2);
+                    DisplayLoss(player1);
+                }
                 break;
 
             case GameState.Pause:
@@ -165,6 +195,16 @@ public class GameManagerSingleton : MonoBehaviour
 
 
 
+    }
+
+    public void DisplayWin(MovingSphere winner)
+    {
+        winner.DisplayWin();
+    }
+
+    public void DisplayLoss(MovingSphere loser)
+    {
+        loser.DisplayLose();
     }
 }
 
